@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMapConfig PUBLIC "-//iBATIS.com//DTD SQL Map Config 2.0//EN" "http://www.ibatis.com/dtd/sql-map-config-2.dtd">
+
+<sqlMapConfig>
+    <!-- 6번 ibatis resource 경로는 기존 소스가 있을 경우 모두 일괄 변경해 주어야 함. -->
+	<sqlMap resource="egovframework/sqlmap/ddit/sample/EgovSample_Sample_SQL.xml"/>
+</sqlMapConfig>

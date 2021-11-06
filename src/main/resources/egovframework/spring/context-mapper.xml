@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+
+	<!-- SqlSession setup for MyBatis Database Layer -->
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<!-- 3) mybatis(구 ibatis) 환경설정 변경 -->
+		<property name="configLocation" value="classpath:/egovframework/sqlmap/ddit/sql-mapper-config.xml" />
+		<property name="mapperLocations" value="classpath:/egovframework/sqlmap/ddit/mappers/*.xml" />
+	</bean>
+
+	<!-- MapperConfigurer setup for MyBatis Database Layer with @Mapper("deptMapper") in DeptMapper Interface -->
+ 	<bean class="egovframework.rte.psl.dataaccess.mapper.MapperConfigurer">
+ 	    <!-- 4) basePackage 배열 처리 구분자 , ", 최상위 패키지만 적지 않고 해당하는 베이스 패키지를 나열해 주어야 한다." -->
+		<property name="basePackage" value="kr.or.ddit, egovframework.com.cmmn" />
+	</bean>
+    
+</beans>
