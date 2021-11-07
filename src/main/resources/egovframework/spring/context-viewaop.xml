@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+						http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
+
+	<!--  System Log Aspect -->
+	<bean id="dditSysLog" class="egovframework.com.cmm.aop.DditSysLogAspect" />
+
+	<aop:config>
+		<aop:aspect id="sysLogAspect" ref="dditSysLog">
+		    
+			<!--  서비스가 실행이 될 경우.. 해당하는 서비스 접근 전처리 또는 후처리 가능 -->
+			<aop:around pointcut="execution(public * kr.or.ddit..impl.*Impl.*(..))" method="logView" />
+		    
+			<aop:after-returning pointcut="execution(public * kr.or.ddit..impl.*Impl.*(..))" method="logAfter" returning="returnVal" />
+			
+<!-- 			<aop:around pointcut="execution(public * kr.or.ddit..impl.*Impl.*List(..))" method="logView" /> -->
+			
+		</aop:aspect>
+	</aop:config>
+
+</beans>

@@ -5,7 +5,7 @@
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 
     <!-- 8) ServiceImpl 스캔될 base-package 경로를 변경 또는 배열 값으로 다중 처리 변경 -->
-    <context:component-scan base-package="egovframework, kr.or.ddit.sample">
+    <context:component-scan base-package="egovframework, kr.or.ddit">
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>

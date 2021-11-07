@@ -8,7 +8,7 @@
                 http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
 
     <!-- 7번 Controller 스캔할 base-package 경로를 배열로 처리 또는 변경한다. -->
-    <context:component-scan base-package="egovframework, kr.or.ddit.sample">
+    <context:component-scan base-package="egovframework, kr.or.ddit">
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service"/>
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
@@ -33,17 +33,17 @@
         <property name="paramName" value="language" />
     </bean>
 
-    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
-        <property name="defaultErrorView" value="cmmn/egovError"/>
-        <property name="exceptionMappings">
-            <props>
-                <prop key="org.springframework.dao.DataAccessException">cmmn/dataAccessFailure</prop>
-                <prop key="org.springframework.transaction.TransactionException">cmmn/transactionFailure</prop>
-                <prop key="egovframework.rte.fdl.cmmn.exception.EgovBizException">cmmn/egovError</prop>
-                <prop key="org.springframework.security.AccessDeniedException">cmmn/egovError</prop>
-            </props>
-        </property>
-    </bean>
+<!--     <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver"> -->
+<!--         <property name="defaultErrorView" value="cmmn/egovError"/> -->
+<!--         <property name="exceptionMappings"> -->
+<!--             <props> -->
+<!--                 <prop key="org.springframework.dao.DataAccessException">cmmn/dataAccessFailure</prop> -->
+<!--                 <prop key="org.springframework.transaction.TransactionException">cmmn/transactionFailure</prop> -->
+<!--                 <prop key="egovframework.rte.fdl.cmmn.exception.EgovBizException">cmmn/egovError</prop> -->
+<!--                 <prop key="org.springframework.security.AccessDeniedException">cmmn/egovError</prop> -->
+<!--             </props> -->
+<!--         </property> -->
+<!--     </bean> -->
 
     <bean class="org.springframework.web.servlet.view.UrlBasedViewResolver" p:order="1"
 	    p:viewClass="org.springframework.web.servlet.view.JstlView"

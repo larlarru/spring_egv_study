@@ -6,7 +6,7 @@
 
 	<aop:config>
 	    <!-- 1번 aop execution 패키지 경로를 업무 패키지 경로로 변경 -->
-		<aop:pointcut id="serviceMethod" expression="execution(* kr.or.ddit.sample..impl.*Impl.*(..))" />
+		<aop:pointcut id="serviceMethod" expression="execution(* kr.or.ddit..impl.*Impl.*(..))" />
 
 		<aop:aspect ref="exceptionTransfer">
 			<aop:after-throwing throwing="exception" pointcut-ref="serviceMethod" method="transfer" />

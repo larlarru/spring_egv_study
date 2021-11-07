@@ -16,9 +16,12 @@
 package egovframework.com.cmmn;
 
 import egovframework.rte.fdl.cmmn.exception.handler.ExceptionHandler;
+import kr.or.ddit.err.service.ErrorService;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 /**
  * @Class Name : EgovSampleExcepHndlr.java
@@ -39,6 +42,10 @@ import org.slf4j.LoggerFactory;
 public class EgovSampleExcepHndlr implements ExceptionHandler {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(EgovSampleExcepHndlr.class);
+	
+	@Autowired
+	@Qualifier("errorService")
+	private ErrorService errorService;
 
 	/**
 	* @param ex
@@ -48,5 +55,7 @@ public class EgovSampleExcepHndlr implements ExceptionHandler {
 	@Override
 	public void occur(Exception ex, String packageName) {
 		LOGGER.debug(" EgovServiceExceptionHandler run...............");
+		LOGGER.debug(ex.getMessage() + " 장애 발생 에러가 발생하여, 메일 전송");
+		LOGGER.error(ex.getMessage(), ex);
 	}
 }

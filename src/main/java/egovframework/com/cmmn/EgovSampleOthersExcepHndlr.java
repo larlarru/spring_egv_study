@@ -31,9 +31,14 @@
 package egovframework.com.cmmn;
 
 import egovframework.rte.fdl.cmmn.exception.handler.ExceptionHandler;
+import kr.or.ddit.err.service.ErrorService;
+
+import javax.annotation.Resource;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 /**
  * @Class Name : EgovSampleOthersExcepHndlr.java
@@ -54,7 +59,10 @@ import org.slf4j.LoggerFactory;
 public class EgovSampleOthersExcepHndlr implements ExceptionHandler {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(EgovSampleOthersExcepHndlr.class);
-
+	
+	@Resource(name = "errorService")
+	private ErrorService errorService;
+	
 	/**
 	* @param exception
 	* @param packageName

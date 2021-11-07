@@ -15,6 +15,9 @@
  */
 package kr.or.ddit.sample.service;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
 /**
  * @Class Name : SampleVO.java
  * @Description : SampleVO Class
@@ -88,6 +91,12 @@ public class SampleVO extends SampleDefaultVO {
 
 	public void setRegUser(String regUser) {
 		this.regUser = regUser;
+	}
+	
+	@Override
+	public String toString() {
+		
+		return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
 	}
 
 }
